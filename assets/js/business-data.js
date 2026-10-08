@@ -29,9 +29,7 @@ export const BUSINESS_DATA = {
   },
 
   policies: {
-    walkIns: "Walk-Ins Welcome",
-    payment: "Cash Only",
-    atmosphere: "Senior, Adult & Kid Friendly"
+    walkIns: "Walk-Ins Welcome"
   },
 
   // Public operating hours confirmed via Google Maps
