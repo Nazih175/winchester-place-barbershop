@@ -12,16 +12,34 @@
     ],
     "headers": [
       {
-        "source": "**/*.@(html|htm)",
+        "source": "**",
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache, must-revalidate"
+            "value": "no-cache, no-store, must-revalidate"
           }
         ]
       },
       {
-        "source": "**/*.@(css|js|jpg|jpeg|png|svg|webp|ico)",
+        "source": "/",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "assets/**",
         "headers": [
           {
             "key": "Cache-Control",
