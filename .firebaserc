@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "viralreels-ai"
+  },
+  "targets": {
+    "viralreels-ai": {
+      "hosting": {
+        "barbershop": [
+          "winchester-place"
+        ]
+      }
+    }
+  }
+}
