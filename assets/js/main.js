@@ -10,7 +10,119 @@ document.addEventListener('DOMContentLoaded', () => {
   initHoursHighlight();
   initActiveNavSpy();
   initCopyAddress();
+  initCallAndInquiryInteractions();
 });
+
+/**
+ * Enhanced Desktop & Mobile Call / Inquiry Handler
+ * Provides seamless feedback on computer/desktop browsers where tel: protocol
+ * might not have a configured handler, ensuring 100% of user clicks result in
+ * immediate feedback, copy-to-clipboard, or a clear phone modal dialog.
+ */
+function initCallAndInquiryInteractions() {
+  const modal = document.querySelector('#call-dialog-backdrop');
+  const closeBtn = document.querySelector('#btn-close-call-dialog');
+  const modalTitle = document.querySelector('#call-modal-title');
+  const modalSubtitle = document.querySelector('#call-modal-service-subtitle');
+  const copyBtn = document.querySelector('#modal-copy-btn');
+  const copyBtnText = document.querySelector('#modal-copy-btn-text');
+
+  // Detect if user is on a mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.innerWidth <= 768 && ('ontouchstart' in window));
+
+  function showToast(message) {
+    const toast = document.querySelector('#quick-toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.style.display = 'block';
+    toast.classList.add('is-visible');
+    setTimeout(() => {
+      toast.classList.remove('is-visible');
+      setTimeout(() => { toast.style.display = 'none'; }, 300);
+    }, 3000);
+  }
+
+  function openCallDialog(serviceName = null) {
+    if (!modal) return;
+    if (serviceName) {
+      if (modalTitle) modalTitle.textContent = `Inquire About ${serviceName}`;
+      if (modalSubtitle) modalSubtitle.textContent = `Call 905-826-8622 for current ${serviceName.toLowerCase()} pricing and chair availability today.`;
+    } else {
+      if (modalTitle) modalTitle.textContent = 'Call Winchester Place';
+      if (modalSubtitle) modalSubtitle.textContent = 'Barbershop inquiries, current wait times & haircut appointments.';
+    }
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCallDialog() {
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeCallDialog);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeCallDialog();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+      closeCallDialog();
+    }
+  });
+
+  // Modal Copy Button
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('905-826-8622');
+        if (copyBtnText) copyBtnText.textContent = 'Copied to Clipboard!';
+        showToast('Phone number copied: 905-826-8622');
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.textContent = 'Copy 905-826-8622';
+        }, 2500);
+      } catch (err) {
+        showToast('Call 905-826-8622');
+      }
+    });
+  }
+
+  // Intercept "Inquire" buttons on service cards
+  const serviceInquireLinks = document.querySelectorAll('.service-call-link');
+  serviceInquireLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const card = link.closest('.service-card');
+      const serviceTitle = card ? card.querySelector('.service-name')?.textContent?.trim() : 'Service';
+      
+      if (!isMobile) {
+        // On desktop, open modal dialog with context for the selected service
+        e.preventDefault();
+        openCallDialog(serviceTitle);
+      }
+    });
+  });
+
+  // Intercept desktop clicks on all other tel: links
+  const allTelLinks = document.querySelectorAll('a[href^="tel:"]');
+  allTelLinks.forEach(link => {
+    // Avoid double attaching to service-call-link
+    if (link.classList.contains('service-call-link')) return;
+
+    link.addEventListener('click', (e) => {
+      if (!isMobile) {
+        // On computer, show the direct phone modal with copy and call options
+        e.preventDefault();
+        openCallDialog();
+      }
+    });
+  });
+}
 
 /**
  * Mobile Navigation Drawer Toggle & Accessibility

@@ -1619,13 +1619,232 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Desktop Call & Inquire Modal Dialog
+   -------------------------------------------------------------------------- */
+.call-dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 12, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  animation: fadeInModal 0.2s ease-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.call-dialog-box {
+  background-color: var(--bg-light-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  max-width: 480px;
+  width: 100%;
+  padding: 32px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+  text-align: center;
+  transform: translateY(0);
+  animation: slideUpModal 0.25s ease-out;
+}
+
+@keyframes slideUpModal {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.call-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--text-light-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.call-dialog-close:hover {
+  color: var(--text-light-primary);
+}
+
+.call-dialog-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  background-color: var(--accent-gold-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+}
+
+.call-dialog-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.call-dialog-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--text-light-primary);
+  margin-bottom: 8px;
+}
+
+.call-dialog-service-info {
+  font-size: 0.9375rem;
+  color: var(--text-light-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.call-dialog-phone-card {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.call-dialog-phone-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light-muted);
+  margin-bottom: 6px;
+}
+
+.call-dialog-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-gold-hover);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+  transition: color var(--transition-fast);
+}
+
+.call-dialog-number:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+.call-dialog-status-hint {
+  font-size: 0.8125rem;
+  color: var(--text-light-secondary);
+}
+
+.call-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 440px) {
+  .call-dialog-actions {
+    flex-direction: row;
+  }
+}
+
+.call-dialog-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-call-direct {
+  background-color: var(--accent-gold);
+  color: #121214;
+  border: none;
+}
+
+.btn-call-direct:hover {
+  background-color: var(--accent-gold-hover);
+  color: #ffffff;
+}
+
+.btn-copy-number {
+  background-color: transparent;
+  color: var(--text-light-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-copy-number:hover {
+  background-color: var(--bg-light-muted);
+  border-color: var(--text-light-muted);
+}
+
+.call-dialog-footer-note {
+  font-size: 0.8125rem;
+  color: var(--text-light-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Quick Toast Notification
+   -------------------------------------------------------------------------- */
+.quick-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background-color: #1a1a1e;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: var(--border-radius-sm);
+  border-left: 4px solid var(--accent-gold);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  z-index: 10001;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.25s ease-out;
+}
+
+.quick-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
    Print & Accessibility Utility
    -------------------------------------------------------------------------- */
 @media print {
   .site-header,
   .demo-banner,
   .mobile-action-bar,
-  .map-wrapper {
+  .map-wrapper,
+  .call-dialog-backdrop,
+  .quick-toast {
     display: none !important;
   }
   
