@@ -1846,6 +1846,334 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Mobile-Specific Layout & Spacing Polish (<= 767px)
+   Prevents cramped elements, improves breathing room, and optimizes tap flow
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Give the body ample bottom clearance above the sticky mobile action bar */
+  body {
+    padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px) + 24px);
+  }
+
+  /* Header breathing room */
+  .header-container {
+    height: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-call-header {
+    padding: 7px 12px;
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+
+  .mobile-nav-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Section vertical rhythm */
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* Hero adjustments */
+  .hero-section {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+
+  .hero-tag {
+    font-size: 0.725rem;
+    padding: 5px 12px;
+    margin-bottom: 16px;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.18;
+    margin-bottom: 14px;
+  }
+
+  .hero-headline {
+    font-size: 1.15rem;
+    margin-top: 6px;
+  }
+
+  .hero-description {
+    font-size: 0.975rem;
+    line-height: 1.6;
+    margin-bottom: 26px;
+  }
+
+  .hero-ctas {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Highlights bar on mobile */
+  .highlights-bar {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .highlight-item {
+    padding: 12px 14px;
+  }
+
+  .hero-quick-meta {
+    gap: 14px;
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .meta-item {
+    gap: 10px;
+  }
+
+  /* Service cards */
+  .services-grid {
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .service-body {
+    padding: 18px 16px 16px 16px;
+  }
+
+  .service-name {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .services-notice-box {
+    padding: 18px 16px;
+    gap: 14px;
+  }
+
+  .services-notice-box .btn-call-header {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* About section */
+  .about-content {
+    margin-bottom: 28px;
+  }
+
+  .about-title {
+    font-size: 1.85rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .about-features {
+    gap: 12px;
+    margin: 22px 0 26px 0;
+  }
+
+  .about-feature-item {
+    gap: 10px;
+  }
+
+  .about-feature-item .feature-text {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  .about-card-badge {
+    padding: 10px 12px;
+    font-size: 0.775rem;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  /* Reviews section */
+  .reviews-grid {
+    gap: 18px;
+    margin-top: 28px;
+  }
+
+  .review-card {
+    padding: 22px 18px;
+  }
+
+  .review-quote {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  /* Hours section */
+  .hours-container-grid {
+    gap: 24px;
+  }
+
+  .hours-card {
+    padding: 20px 16px;
+  }
+
+  .hours-row {
+    padding: 10px 0;
+  }
+
+  .hours-day,
+  .hours-time {
+    font-size: 0.875rem;
+  }
+
+  .hours-action-card {
+    padding: 22px 18px;
+    gap: 18px;
+  }
+
+  .hours-action-title {
+    font-size: 1.25rem;
+  }
+
+  .hours-action-desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Location section */
+  .location-info-card {
+    padding: 22px 18px;
+    gap: 20px;
+  }
+
+  .location-address-block h3 {
+    font-size: 1.3rem;
+  }
+
+  .address-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .location-contact-row {
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+  }
+
+  .location-actions-group {
+    gap: 8px;
+  }
+
+  .btn-directions,
+  .btn-call-outline {
+    padding: 11px 16px;
+    font-size: 0.875rem;
+  }
+
+  .map-wrapper {
+    height: 280px;
+  }
+
+  /* Final CTA */
+  .cta-section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .cta-title {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .cta-desc {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-phone-number {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-actions {
+    gap: 10px;
+  }
+
+  .cta-actions .btn-primary,
+  .cta-actions .btn-secondary {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding-top: 44px;
+    padding-bottom: 32px;
+  }
+
+  .footer-grid {
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+
+  .footer-bottom {
+    padding-top: 20px;
+    gap: 12px;
+  }
+
+  .demo-disclaimer-note {
+    font-size: 0.775rem;
+    line-height: 1.45;
+    padding-top: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Print & Accessibility Utility
    -------------------------------------------------------------------------- */
 @media print {
