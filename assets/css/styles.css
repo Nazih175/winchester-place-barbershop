@@ -1910,10 +1910,42 @@ button {
   }
 
   .hero-tag {
-    font-size: 0.725rem;
-    padding: 5px 12px;
+    font-size: 0.75rem;
+    padding: 6px 14px;
     margin-bottom: 16px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    font-weight: 500;
+    max-width: 100%;
+    gap: 7px;
+  }
+
+  .hero-tag-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap;
+  }
+
+  .hero-tag-score {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 0.8rem;
+  }
+
+  .hero-tag-stars {
+    color: #f59e0b;
+    letter-spacing: 1px;
+    font-size: 0.78rem;
+  }
+
+  .hero-tag-count {
+    color: var(--accent-gold);
+    font-size: 0.74rem;
+  }
+
+  .hero-tag-location {
+    display: none;
   }
 
   .hero-title {
@@ -1952,7 +1984,20 @@ button {
   }
 
   .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     padding: 12px 14px;
+  }
+
+  .highlight-item .highlight-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    flex-shrink: 0;
+    display: block;
+    color: var(--accent-gold);
   }
 
   .hero-quick-meta {
@@ -2035,6 +2080,28 @@ button {
   }
 
   /* Reviews section */
+  .reviews-header-badge {
+    padding: 6px 14px;
+    gap: 8px;
+    margin-bottom: 14px;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .reviews-header-badge .stars-row {
+    font-size: 0.95rem;
+    gap: 1px;
+  }
+
+  .reviews-header-badge .rating-score {
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .reviews-header-badge .rating-count {
+    font-size: 0.8rem;
+  }
+
   .reviews-grid {
     gap: 18px;
     margin-top: 28px;
