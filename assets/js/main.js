@@ -49,7 +49,7 @@ function initCallAndInquiryInteractions() {
       if (modalSubtitle) modalSubtitle.textContent = `Call 905-826-8622 for current ${serviceName.toLowerCase()} pricing and chair availability today.`;
     } else {
       if (modalTitle) modalTitle.textContent = 'Call Winchester Place';
-      if (modalSubtitle) modalSubtitle.textContent = 'Barbershop inquiries, current wait times & haircut appointments.';
+      if (modalSubtitle) modalSubtitle.textContent = 'Barbershop inquiries, current wait times & haircuts.';
     }
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';

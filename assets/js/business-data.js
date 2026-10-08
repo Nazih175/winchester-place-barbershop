@@ -8,12 +8,6 @@ export const BUSINESS_DATA = {
   name: "Winchester Place Men's Hairstyling",
   tagline: "Traditional Barbering in Streetsville",
   category: "Barbershop / Men's Hairstyling",
-  rating: {
-    score: "4.8",
-    reviewCount: "127",
-    source: "Google Reviews",
-    googleUrl: "https://www.google.com/maps/place/Winchester+Place+Men's+Hairstyling/@43.582236,-79.7152091,17z/data=!4m8!3m7!1s0x882b41b9019e221d:0x7bb240dd402c7029!8m2!3d43.582236!4d-79.7152091!9m1!1b1!16s%2Fg%2F1tpllcg0"
-  },
   
   contact: {
     displayPhone: "905-826-8622",
@@ -35,7 +29,7 @@ export const BUSINESS_DATA = {
   },
 
   policies: {
-    walkIns: "Walk-Ins Welcome — No Appointment Required",
+    walkIns: "Walk-Ins Welcome",
     payment: "Cash Only",
     atmosphere: "Senior, Adult & Kid Friendly"
   },
@@ -53,7 +47,7 @@ export const BUSINESS_DATA = {
   hoursNotice: "Holiday hours may vary. Please call ahead.",
 
   // Publicly listed core services
-  pricingNotice: "Call for current pricing and senior rates.",
+  pricingNotice: "Call for current pricing.",
   services: [
     {
       id: "haircuts",
@@ -61,7 +55,7 @@ export const BUSINESS_DATA = {
       description: "Precision haircutting and styling for men, seniors, and boys of all ages tailored to your preference.",
       image: "assets/images/haircut.jpg",
       imageAlt: "Men's haircuts and styling at Winchester Place Men's Hairstyling",
-      pricingNote: "Call for pricing & senior rates"
+      pricingNote: "Call for current pricing"
     },
     {
       id: "beard-trims",
@@ -82,46 +76,46 @@ export const BUSINESS_DATA = {
     {
       id: "hot-towel-shaves",
       name: "Traditional Hot Towel Shaves",
-      description: "Classic barbershop hot towel shave for ultimate relaxation, skin comfort, and a close finish.",
+      description: "Classic barbershop hot towel shave for skin comfort and a close finish.",
       image: "assets/images/hot-towel.jpg",
       imageAlt: "Classic hot towel shave treatment",
       pricingNote: "Call for current pricing"
     }
   ],
 
-  // Real, verified Google Maps reviews with actual customer names, avatars, and dates
+  // Excerpts from Google reviews with initials instead of stored avatar images
   reviews: [
     {
       author: "Kapil Gupta",
+      initials: "KG",
       account: "Google Reviewer",
-      avatar: "assets/images/avatar-kapil.jpg",
       rating: 5,
       date: "Google Review",
-      quote: "Finally a barbershop that truly understands how to cut men’s hair! Aldo the co-owner is amazing at his craft, over 40 years of experience shows! I’ve been bouncing around for the past two years and so glad that I ended up here! Men looking for a great cut and conversation- go and see Aldo!"
+      quote: "Finally a barbershop that truly understands how to cut men’s hair! Aldo is amazing at his craft. Great cut and conversation!"
     },
     {
       author: "Keith Macwan",
+      initials: "KM",
       account: "Google Reviewer",
-      avatar: "assets/images/avatar-keith.jpg",
       rating: 5,
       date: "Google Review",
-      quote: "We had an amazing experience with Aldo when he cut my 3-year-old’s hair! He was incredibly patient, gentle, and made my little one feel completely at ease. Getting a toddler to sit still isn’t easy, but Aldo’s friendly approach made all the difference. Fantastic neat cut!"
+      quote: "We had an amazing experience with Aldo when he cut my 3-year-old’s hair! He was incredibly patient, gentle, and made my little one feel completely at ease. Fantastic neat cut!"
     },
     {
       author: "Hailey Furster",
+      initials: "HF",
       account: "Google Reviewer",
-      avatar: "assets/images/avatar-hailey.jpg",
       rating: 5,
       date: "Google Review",
-      quote: "We just dropped in to have my son's first haircut and Samir was incredible! He worked so hard to put my son at ease and was so skilled to deliver a quality cut. He managed to cut my son's hair (22 months) when I was holding him and it turned out great!"
+      quote: "We just dropped in to have my son's first haircut and Samir was incredible! He worked so hard to put my son at ease and was so skilled to deliver a quality cut."
     },
     {
       author: "Dan Wolfe",
+      initials: "DW",
       account: "Local Guide",
-      avatar: "assets/images/avatar-dan.jpg",
       rating: 5,
       date: "Google Review",
-      quote: "Excellent services. I normally request a trim and a shave. They accept cash only. And have senior rates. Well kept and clean shop. Even during busy days. Shampoos, haircuts and shaving are the main services given. No appointments taken. Walk in's only."
+      quote: "Excellent services. I normally request a trim and a shave. Well kept and clean shop. Haircuts and shaving are the main services given. Walk-ins welcome."
     }
   ]
 };

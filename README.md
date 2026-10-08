@@ -1,15 +1,15 @@
 # Winchester Place Men's Hairstyling — Website Concept Demo
 
-> **Disclaimer**: Unofficial website concept — created for demonstration purposes only. This project has not been commissioned, approved, sponsored, or endorsed by Winchester Place Men's Hairstyling.
+> **Notice**: Unofficial website concept — created for demonstration purposes only. This project has not been commissioned, approved, sponsored, or endorsed by Winchester Place Men's Hairstyling.
 
 ---
 
 ## 1. Verified Business Information
 
-| Field | Verified Detail |
+| Field | Detail |
 |---|---|
 | **Business Name** | Winchester Place Men's Hairstyling |
-| **Category** | Barber shop / men's hairstyling / hair care service |
+| **Category** | Barber shop / men's hairstyling / grooming |
 | **Address** | 154 Queen St S, Mississauga, Ontario, L5M 2P4, Canada |
 | **Neighbourhood** | Streetsville, Mississauga |
 | **Phone** | 905-826-8622 |
@@ -19,30 +19,30 @@
 
 ---
 
-## 2. Publicly Listed Hours
+## 2. Publicly Listed Hours (Google Maps)
 
 | Day | Status / Hours |
 |---|---|
-| **Monday** | *Please call to confirm* (unconfirmed for demo) |
+| **Monday** | Closed |
 | **Tuesday** | 9:00 AM – 7:00 PM |
 | **Wednesday** | 9:00 AM – 7:00 PM |
 | **Thursday** | 9:00 AM – 7:00 PM |
 | **Friday** | 9:00 AM – 7:00 PM |
 | **Saturday** | 8:00 AM – 5:00 PM |
-| **Sunday** | *Please call to confirm* (unconfirmed for demo) |
+| **Sunday** | Closed |
 
-*Notice: "Hours may change. Please call to confirm."*
+*Notice: "Holiday hours may vary. Please call ahead."*
 
 ---
 
-## 3. Publicly Listed Core Services Only
+## 3. Core Barbering Services
 
-1. **Men's Haircuts** — Traditional men's haircutting and grooming tailored to your style and preference.
-2. **Beard Trims** — Neat beard trimming, line-ups, and grooming for a well-maintained finish.
+1. **Men's Haircuts** — Precision scissor and clipper cutting for men, seniors, and boys of all ages tailored to your personal style.
+2. **Beard Trims & Shaping** — Neat beard shaping, trimming, line-ups, and grooming for a sharp finish.
 3. **Head Shaves** — A clean, smooth head-shaving service delivered with classic barbershop care.
-4. **Hot Towel Shaves** — A traditional hot-towel shaving service for skin comfort and a close shave.
+4. **Hot Towel Shaves** — Traditional hot towel shave for skin comfort, warmth, and a clean, close finish.
 
-*Pricing Policy: No prices have been invented. All cards and notices state "Call for current pricing and availability."*
+*Pricing Policy: All service cards direct visitors to call for current pricing (`tel:+19058268622`).*
 
 ---
 
@@ -51,6 +51,8 @@
 ```
 winchester-place-barbershop/
 ├── index.html                   # Semantic, accessible HTML5 single page website
+├── robots.txt                   # Disallow crawler indexing during concept phase
+├── firebase.json                # Firebase Hosting configuration & Cache-Control headers
 ├── README.md                    # Documentation & owner handoff guide
 ├── serve.js                     # Lightweight local preview static server (Node.js)
 ├── assets/
@@ -58,21 +60,22 @@ winchester-place-barbershop/
 │   │   └── styles.css           # Mobile-first stylesheet (CSS variables, fluid typography, dark/gold theme)
 │   ├── js/
 │   │   ├── business-data.js     # Centralized single source of truth for business information
-│   │   └── main.js              # Accessible mobile drawer, live Eastern-time schedule indicator
+│   │   └── main.js              # Accessible mobile drawer, live Eastern-time schedule indicator, modal dialog
 │   └── images/
-│       ├── hero-barber.jpg      # Royalty-free placeholder barber chair & interior
-│       ├── haircut.jpg          # Royalty-free placeholder haircut demonstration
-│       ├── beard-trim.jpg       # Royalty-free placeholder beard trimming
-│       ├── head-shave.jpg       # Royalty-free placeholder head shave demonstration
-│       ├── hot-towel.jpg        # Royalty-free placeholder hot towel shave
-│       └── tools.jpg            # Royalty-free placeholder barber shears workstation
+│       ├── shop-front.jpg       # Authentic storefront at 154 Queen St S plaza
+│       ├── shop-interior.jpg    # Authentic styling station and barber chairs
+│       ├── tools.jpg            # Authentic tools workstation
+│       ├── haircut.jpg          # Licensed service demonstration photo
+│       ├── beard-trim.jpg       # Licensed service demonstration photo
+│       ├── head-shave.jpg       # Licensed service demonstration photo
+│       └── hot-towel.jpg        # Licensed service demonstration photo
 ```
 
 ---
 
 ## 5. Centralized Maintenance
 
-All key business data is configured in `assets/js/business-data.js`. If the business owner provides updated hours, confirmed prices, or additional contact methods, modify the values in `assets/js/business-data.js` and the corresponding lines in `index.html`.
+Key business data is documented in `assets/js/business-data.js`. If the business owner provides updated hours, confirmed prices, or additional contact methods, modify the values in `assets/js/business-data.js` and the corresponding sections in `index.html`.
 
 ---
 
@@ -88,23 +91,40 @@ node serve.js
 
 ---
 
-## 7. Future Production Conversion Checklist
+## 7. Owner Confirmation Required Before Official Launch
 
-When the business owner approves the website for live production:
+Before converting this demo concept into an official commercial website, the following items must be verified directly with the owner of Winchester Place Men's Hairstyling:
 
-1. **Remove Unofficial Concept Notices**:
-   - Remove the `<aside class="demo-banner">` from `index.html`.
-   - Update the footer disclaimer from concept notice to standard business copyright.
-   - Remove placeholder badges on service images.
+- [ ] **Written Approval**: Explicit owner consent to represent Winchester Place Men's Hairstyling online.
+- [ ] **Business Leadership & Staffing**: Confirmation of owner/barber names, titles, and bios before publishing.
+- [ ] **Exact Pricing**: Current pricing for men's haircuts, beard trims, shaves, and any senior or youth rates.
+- [ ] **Operating Hours**: Confirmation of weekly hours and holiday closure policies.
+- [ ] **Payment Methods**: Confirmation of accepted payment methods (cash, debit, credit).
+- [ ] **Appointment Policy**: Confirmation of walk-in vs appointment scheduling rules.
+- [ ] **Photography Rights**: Confirmation that interior and exterior photographs are approved for marketing use.
+- [ ] **Testimonials**: Written approval for any customer review quotes highlighted on the site.
+
+---
+
+## 8. Production-Launch Checklist (Post-Approval)
+
+Once owner approval is obtained:
+
+1. **Remove Unofficial Concept Notice**:
+   - Remove `<p class="demo-disclaimer-note">` from the footer in `index.html`.
 2. **Enable Search Engine Indexing**:
    - Change `<meta name="robots" content="noindex, nofollow">` to `<meta name="robots" content="index, follow">`.
+   - Update `robots.txt` to allow standard crawling.
    - Update page title to `"Winchester Place Men's Hairstyling | Streetsville Barbershop"`.
-3. **Confirm Hours & Services**:
-   - Confirm Monday and Sunday operating hours directly with the owner.
-   - Add confirmed service pricing if requested by the owner.
-4. **Swap Authentic Photography**:
-   - Replace placeholder images in `assets/images/` with real photographs of the 154 Queen St S shop interior, barbers, and station.
-5. **Add Owner-Approved Reviews**:
-   - Replace the review placeholder banner with authentic, owner-approved Google Reviews or testimonials.
-6. **Deploy to Production**:
-   - Deploy as a fast, zero-maintenance static site to Firebase Hosting, Cloudflare Pages, Netlify, or Vercel with a custom domain.
+   - Add `<link rel="canonical">` pointing to the official production custom domain.
+   - Generate and deploy `sitemap.xml`.
+3. **Structured Data**:
+   - If approved by the owner, restore verified `aggregateRating` and `priceRange` to the Schema.org JSON-LD markup.
+4. **Custom Domain & DNS**:
+   - Connect the approved custom domain (e.g., `winchesterplace.ca`) via Firebase Hosting / Cloudflare.
+   - Configure DNS records (A / ALIAS / CNAME records) with provider guidance.
+   - SSL certificates are automatically provisioned and renewed by Firebase Hosting at no charge.
+5. **Google Business Profile Integration**:
+   - Add the official website URL to the business's verified Google Business Profile.
+6. **Hosting Reliability**:
+   - Firebase Hosting runs on Google Cloud global CDN infrastructure with high uptime and automated SSL. Note that standard free tiers (Spark) operate under Google Cloud terms of service without enterprise SLA financial guarantees; upgrade to Blaze if high-traffic commercial SLAs are required.
